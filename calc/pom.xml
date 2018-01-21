@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
       
     <scm>
-         <connection>scm:git:git://github.com/lenks01/taboola.git</connection>
+         <connection>scm:git:https://github.com/lenks01/taboola.git</connection>
          <url>https://github.com/lenks01/taboola</url>
     </scm>
 
