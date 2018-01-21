@@ -98,6 +98,35 @@
                 <version>2.5.3</version>
             </plugin>
 
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rpm-maven-plugin</artifactId>
+                <version>2.1.5</version>
+                <executions>
+                    <execution>
+                        <id>generate-rpm</id>
+                        <goals>
+                        <goal>rpm</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <copyright>2018, Lena</copyright>
+                    <distribution>Taboola RPM package</distribution>
+                    <group>Testers</group>
+                    <mappings>
+                        <mapping>
+                            <directory>${app.home}/lib/</directory>
+                            <dependency/>
+                        <artifact/>
+                        </mapping>
+                        <mapping>
+                            <directory>${app.home}/logs</directory>
+                        </mapping>
+                    </mappings>
+                </configuration>
+            </plugin>
+
         </plugins>
 
     </build>
