@@ -7,6 +7,11 @@
     <groupId>taboola_test</groupId>
     <artifactId>taboola_test</artifactId>
     <version>1.0-SNAPSHOT</version>
+      
+    <scm>
+         <connection>https://github.com/lenks01/taboola.git</connection>
+         <url>https://github.com/lenks01/taboola</url>
+    </scm>
 
     <dependencies>
         <dependency>
