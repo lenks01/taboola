@@ -4,7 +4,7 @@ properties([
 node {
     timestamps {
         stage ('checkout') {
-            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: '**'], [$class: 'UserIdentity', email: 'feygin.lena@gmail.com', name: 'feygin.lena@gmail.com']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'feygin.lena@gmail.com', url: 'git@github.com:lenks01/taboola.git']]])
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: '**'], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'feygin.lena@gmail.com', url: 'git@github.com:lenks01/taboola.git']]])
         }
         stage ('build') {
             withEnv(["JAVA_HOME=${ tool name: 'jdk-8u162', type: 'jdk' }", "PATH+MAVEN=${tool name: 'maven-3.5.2', type: 'maven'}/bin:${env.JAVA_HOME}/bin"]) {
@@ -13,6 +13,8 @@ node {
         }
         stage ('prepare release') {
             withEnv(["JAVA_HOME=${ tool name: 'jdk-8u162', type: 'jdk' }", "PATH+MAVEN=${tool name: 'maven-3.5.2', type: 'maven'}/bin:${env.JAVA_HOME}/bin"]) {
+                sh "git config user.email 'feygin.lena@gmail.com'"
+                sh "git config user.name 'Lena Feygin'"
                 sh "mvn -f calc/pom.xml --batch-mode -V -U -e release:clean release:prepare"
             }
         }
