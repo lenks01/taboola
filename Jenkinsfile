@@ -8,7 +8,12 @@ node {
         }
         stage ('build') {
             withEnv(["JAVA_HOME=${ tool name: 'jdk-8u162', type: 'jdk' }", "PATH+MAVEN=${tool name: 'maven-3.5.2', type: 'maven'}/bin:${env.JAVA_HOME}/bin"]) {
-                sh "mvn -f calc/pom.xml --batch-mode -V -U -e clean deploy -Dsurefire.useFile=false"
+                sh "mvn -f calc/pom.xml --batch-mode -V -U -e clean install -Dsurefire.useFile=false"
+            }
+        }
+        stage ('prepare release') {
+            withEnv(["JAVA_HOME=${ tool name: 'jdk-8u162', type: 'jdk' }", "PATH+MAVEN=${tool name: 'maven-3.5.2', type: 'maven'}/bin:${env.JAVA_HOME}/bin"]) {
+                sh "mvn -f calc/pom.xml --batch-mode -V -U -e release:clean release:prepare"
             }
         }
     }
