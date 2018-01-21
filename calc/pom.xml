@@ -11,7 +11,7 @@
          <developerConnection>scm:git:git@github.com:lenks01/taboola.git</developerConnection>
          <url>https://github.com/lenks01/taboola</url>
       <tag>HEAD</tag>
-  </scm>
+    </scm>
 
     <dependencies>
         <dependency>
@@ -43,6 +43,10 @@
 
     </dependencies>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
     <build>
 
         <plugins>
