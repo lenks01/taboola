@@ -1,7 +1,7 @@
 properties([
     buildDiscarder(logRotator(numToKeepStr: '20', artifactNumToKeepStr: '20')),
 ])
-node {
+node ('centos') {
     timestamps {
         stage ('checkout') {
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: '**']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'feygin.lena@gmail.com', url: 'git@github.com:lenks01/taboola.git']]])
