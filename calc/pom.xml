@@ -10,7 +10,7 @@
          <connection>scm:git:git://github.com/lenks01/taboola.git</connection>
          <developerConnection>scm:git:git@github.com:lenks01/taboola.git</developerConnection>
          <url>https://github.com/lenks01/taboola</url>
-      <tag>HEAD</tag>
+      <tag>v1.36-SNAPSHOT</tag>
     </scm>
 
     <dependencies>
