@@ -1,11 +1,11 @@
 properties([
     buildDiscarder(logRotator(numToKeepStr: '20', artifactNumToKeepStr: '20')),
 ])
-tool {
-    jdk 'jdk-8u162'
-    maven 'maven-3.5.2'
-}
 node ('centos') {
+    tool {
+        jdk 'jdk-8u162'
+        maven 'maven-3.5.2'
+    }
     timestamps {
         stage ('checkout') {
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: '**']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'feygin.lena@gmail.com', url: 'git@github.com:lenks01/taboola.git']]])
