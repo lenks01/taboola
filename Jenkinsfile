@@ -4,12 +4,12 @@ properties([
 pipeline {
     agent {
         label 'centos' 
-    }   
+    }
+    options { timestamps() }
     tools {
         jdk 'jdk-8u162'
         maven 'maven-3.5.2'
     }
-    timestamps {
         stage ('checkout') {
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: '**']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'feygin.lena@gmail.com', url: 'git@github.com:lenks01/taboola.git']]])
         }
@@ -28,5 +28,4 @@ pipeline {
         stage ('create RPM') {
             sh "mvn -f calc/pom.xml --batch-mode -V e rpm:attached-rpm"
         }
-    }
 }
