@@ -4,13 +4,13 @@
 
     <groupId>taboola_test</groupId>
     <artifactId>taboola_test</artifactId>
-    <version>1.48-SNAPSHOT</version>
+    <version>1.49-SNAPSHOT</version>
       
     <scm>
          <connection>scm:git:git://github.com/lenks01/taboola.git</connection>
          <developerConnection>scm:git:git@github.com:lenks01/taboola.git</developerConnection>
          <url>https://github.com/lenks01/taboola</url>
-      <tag>v1.48-SNAPSHOT</tag>
+      <tag>HEAD</tag>
     </scm>
 
     <dependencies>
