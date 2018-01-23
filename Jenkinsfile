@@ -1,7 +1,7 @@
 properties([
     buildDiscarder(logRotator(numToKeepStr: '20', artifactNumToKeepStr: '20')),
 ])
-tools {
+tool {
     jdk 'jdk-8u162'
     maven 'maven-3.5.2'
 }
