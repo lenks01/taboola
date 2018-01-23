@@ -15,7 +15,7 @@ node ('centos') {
             withEnv(["JAVA_HOME=${ tool name: 'jdk-8u162', type: 'jdk' }", "PATH+MAVEN=${tool name: 'maven-3.5.2', type: 'maven'}/bin:${env.JAVA_HOME}/bin"]) {
                 sh "git config user.email 'feygin.lena@gmail.com'"
                 sh "git config user.name 'Lena Feygin'"
-                sh "mvn -f calc/pom.xml --batch-mode -V -U -e release:clean release:branch"
+                sh "mvn -f calc/pom.xml --batch-mode -V -U -e release:clean release:prepare"
             }
         }
     }
