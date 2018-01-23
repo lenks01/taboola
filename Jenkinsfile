@@ -1,8 +1,11 @@
 properties([
     buildDiscarder(logRotator(numToKeepStr: '20', artifactNumToKeepStr: '20')),
 ])
-node ('centos') {
-    tool {
+pipeline {
+    agent {
+        label 'centos' 
+    }   
+    tools {
         jdk 'jdk-8u162'
         maven 'maven-3.5.2'
     }
