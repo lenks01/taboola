@@ -28,13 +28,13 @@ pipeline {
             // withEnv(["JAVA_HOME=${ tool name: 'jdk-8u162', type: 'jdk' }", "PATH+MAVEN=${tool name: 'maven-3.5.2', type: 'maven'}/bin:${env.JAVA_HOME}/bin"]) {
                 // sh "git config user.email 'feygin.lena@gmail.com'"
                 // sh "git config user.name 'Lena Feygin'"
-                sh "mvn -f calc/pom.xml --batch-mode -V -U -e release:clean release:prepare"
+                sh "mvn -f calc/pom.xml --batch-mode -V -U -e release:clean release:prepare -DdryRun=true"
             // }
             }
         }
         stage ('create RPM') {
             steps {
-                sh "mvn -f calc/pom.xml --batch-mode -V e rpm:attached-rpm"
+                sh "mvn -f calc/pom.xml --batch-mode -V -e rpm:attached-rpm"
             }
         }
     }
