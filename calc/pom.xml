@@ -137,7 +137,7 @@
                             <artifact />
                         </mapping>
                         <mapping>
-                            <directory>/usr/local/bin</directory>
+                            <directory>${app.home}/bin</directory>
                             <filemode>750</filemode>
                             <username>jenkins</username>
                             <groupname>jenkins</groupname>
@@ -145,6 +145,10 @@
                                 <source>
                                     <location>src/main/bin</location>
                                 </source>
+                                <softlinkSource>
+                                    <location>/usr/local/bin/calc</location>
+                                    <destination>calc</destination>
+                                </softlinkSource>
                             </sources>
                         </mapping>
                     </mappings>
