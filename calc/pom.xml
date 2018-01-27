@@ -80,7 +80,7 @@
                             <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
                     </archive>
-                    <finalName>taboola_calc.jar</finalName>
+                    <finalName>taboola_calc</finalName>
                 </configuration>
             </plugin>
 
@@ -126,6 +126,7 @@
                     <copyright>2018, Lena</copyright>
                     <distribution>Taboola RPM package</distribution>
                     <group>Testers</group>
+                    <file>${project.build.directory}/rpm/taboola_calc/RPMS/noarch/taboola_calc.noarch.rpm</file>
                     <mappings>
                         <mapping>
                             <directory>${app.home}/lib</directory>
