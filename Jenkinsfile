@@ -25,7 +25,8 @@ pipeline {
         }
         stage ('Install rpm locally') {
             steps {
-                sh "sudo rpm -U calc/target/taboola_calc.noarch.rpm"
+                sh "sudo rm -rf /opt/calc"
+                sh "sudo rpm -U /calc/target/rpm/taboola_calc/RPMS/noarch/*.rpm"
             }
         }
         stage ('Archive') {

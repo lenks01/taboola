@@ -38,7 +38,7 @@ else :
 
 # Distnguish between pipeline and other jobs
 try:
-    jenkinsStream   = urlopen(jenkinsUrl + jobName + "/api/json)
+    jenkinsStream   = urlopen(jenkinsUrl + jobName + "/api/json")
 except urllib2.HTTPError, e:
     print "URL Error: " + str(e.code) 
     print "      (job name [" + jobName + "] probably wrong)"
@@ -50,8 +50,17 @@ except:
     print "Failed to parse json"
     sys.exit(3)
 
+if "org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" in jobJson["_class"]:
+    pipeline = True
+else:
+    pipeline = False
+
+
 try:
-    jenkinsStream   = urlopen(jenkinsUrl + jobName + "/"+ buildNumber + "/api/json")
+    if pipeline:
+        jenkinsStream   = urlopen(jenkinsUrl + jobName + "/job/master/"+ buildNumber + "/api/json")
+    else:
+        jenkinsStream   = urlopen(jenkinsUrl + jobName + "/"+ buildNumber + "/api/json")
 except urllib2.HTTPError, e:
     print "URL Error: " + str(e.code) 
     print "      (job name [" + jobName + "] probably wrong)"
@@ -67,7 +76,7 @@ print "Job \"" + jobName + "\" build #" + buildNumber + ":"
 for s in buildStatusJson["actions"]:
     if s.has_key("causes"):
         for cause in s["causes"]:
-            print (cause["shortDescription"])
+            print ("Started by " + cause["shortDescription"] if pipeline else cause["shortDescription"])
 
 if buildStatusJson.has_key("result"):      
     print "Job Status: " + buildStatusJson["result"] 
