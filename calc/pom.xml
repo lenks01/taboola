@@ -47,7 +47,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <app.home>/opt/calc</app.home>
         <rpm.name>taboola_calc</rpm.name>
-        <rpm.copyTo>${project.build.directory}</rpm.copyTo>
+        <rpm.copyTo>${project.build.directory}/</rpm.copyTo>
     </properties>
 
     <build>
