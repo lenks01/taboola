@@ -46,6 +46,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <app.home>/opt/calc</app.home>
+        <rpm.name>taboola_calc</rpm.name>
+        <rpm.copyTo>${project.build.directory}</rpm.copyTo>
     </properties>
 
     <build>
@@ -125,7 +127,7 @@
                 <configuration>
                     <copyright>2018, Lena</copyright>
                     <distribution>Taboola RPM package</distribution>
-                    <group>Testers</group>
+                    <group>taboola</group>
                     <file>${project.build.directory}/rpm/taboola_calc/RPMS/noarch/taboola_calc.noarch.rpm</file>
                     <mappings>
                         <mapping>
