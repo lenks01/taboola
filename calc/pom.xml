@@ -145,9 +145,17 @@
                                 <source>
                                     <location>src/main/bin</location>
                                 </source>
+                            </sources>
+                        </mapping>
+                        <mapping>
+                            <directory>/usr/local/bin</directory>
+                            <filemode>750</filemode>
+                            <username>jenkins</username>
+                            <groupname>jenkins</groupname>
+                            <sources>
                                 <softlinkSource>
                                     <location>${app.home}/bin/calc</location>
-                                    <destination>/usr/local/bin/calc</destination>
+                                    <destination>calc</destination>
                                 </softlinkSource>
                             </sources>
                         </mapping>
