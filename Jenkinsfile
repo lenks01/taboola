@@ -32,10 +32,10 @@ pipeline {
         //     // }
         //     }
         // }
-        // stage ('create RPM') {
-        //     steps {
-        //         sh "mvn -f calc/pom.xml --batch-mode -V -e rpm:attached-rpm"
-        //     }
-        // }
+        stage ('Archive') {
+            steps {
+                archiveArtifacts artifacts: '**/*.rpm'
+            }
+        }
     }
 }
