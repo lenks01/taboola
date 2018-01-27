@@ -127,14 +127,28 @@
                     <group>Testers</group>
                     <mappings>
                         <mapping>
-                            <directory>${app.home}/lib/</directory>
+                            <directory>${app.home}/lib</directory>
+                            <filemode>750</filemode>
+                            <username>jenkins</username>
+                            <groupname>jenkins</groupname>
                             <dependency />
-                        <artifact />
+                            <artifact />
                         </mapping>
                         <mapping>
-                            <directory>${app.home}/logs</directory>
+                            <directory>${app.home}/bin</directory>
+                            <filemode>750</filemode>
+                            <username>jenkins</username>
+                            <groupname>jenkins</groupname>
+                            <sources>
+                                <source>
+                                    <location>src/main/bin</location>
+                                </source>
+                            </sources>
                         </mapping>
                     </mappings>
+                    <preinstallScriptlet>
+                        <script>echo "installing now"</script>
+                    </preinstallScriptlet>
                 </configuration>
             </plugin>
 
