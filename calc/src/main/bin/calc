@@ -1,3 +1,4 @@
 #!/bin/bash
+# Assumes java defined in PATH
 
 java -cp /opt/calc/lib/*:. Calc
