@@ -79,7 +79,10 @@ for s in buildStatusJson["actions"]:
             print ("Started by " + cause["shortDescription"] if pipeline else cause["shortDescription"])
 
 if buildStatusJson.has_key("result"):      
-    print "Job Status: " + buildStatusJson["result"] 
+    if buildStatusJson["result"] is None:
+        print "Job Status: building"
+    else:
+        print "Job Status: " + buildStatusJson["result"] 
 else:
     print "No status found"
 
